@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex justify-center bg-gray-200 p-10">
+    <main class="bg-white shadow-lg rounded-lg w-full p-6">
+        <div>
+            <!--Div1 heading-->
+            <h1 class="text-2xl font-bold text-yellow-800"> To-Do List </h1>
+        </div>
+
+        <div class="mt-4">
+            <!--Div2 todo form-->
+            <form class="flex gap-5 mb-5 mt-5">
+                <input class="flex-1 border rounded px-2" type="text" id="add" name="add" placeholder="Add a New Task...">
+                <button class="bg-blue-800 text-white font-bold rounded px-4 ml-2" type="submit">Add</button>
+        </div>
+
+        <div>
+            <!--Div3 todo list-->
+            <ul class="space-y-4">
+                <li class="flex gap-3">
+                    <input type="checkbox">Goto GYM
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times</button>
+                </li>
+                <li class="flex gap-3">
+                    <input type="checkbox">Learn Tailwind CSS
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times</button>
+                </li>
+                <li class="flex gap-3">
+                    <input type="checkbox">Integrate todo list API
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times</button>
+                </li>
+                <li class="flex gap-3">
+                    <input type="checkbox">Buy Grocries
+                    <button class="ml-auto hover:text-red-500 text-xl px-2">&times</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mt-5">
+            <!--Div4 todo completed list-->
+            <h2 class="text-lg text-yellow-800 mb-4">Completed Task</h2>
+            <ul class="space-y-3">
+                <li>
+                    <input type="checkbox">Learn HTML
+                </li>
+                <li>
+                    <input type="checkbox">Learn CSS
+                </li>
+                <li>
+                    <input type="checkbox">Create a sample project
+                </li>
+            </ul>
+        </div>
+    </main>
+
+</body>
+
+</html>
