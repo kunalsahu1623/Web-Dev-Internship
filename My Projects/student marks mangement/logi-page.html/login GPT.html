@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Marks Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen bg-gray-100">
+
+  <!-- Sidebar -->
+  <div class="w-64 bg-gray-800 text-white flex items-center justify-center text-center">
+    <h1 class="text-lg font-semibold transform rotate-90 whitespace-nowrap">
+      Student Marks Management
+    </h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex justify-center items-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">Sign In</h2>
+
+      <form class="space-y-4">
+        <div>
+          <input type="text" placeholder="username"
+            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" />
+        </div>
+        <div>
+          <input type="password" placeholder="password"
+            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" />
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="remember" class="mr-2" />
+          <label for="remember" class="text-sm">Remember me</label>
+        </div>
+        <button type="submit"
+          class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded">Login</button>
+      </form>
+
+      <div class="flex justify-between text-sm mt-4">
+        <a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+      </div>
+
+      <div class="text-sm mt-4 text-center">
+        Don’t have an account?
+        <a href="#" class="text-blue-500 hover:underline">Sign Up Here</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
