@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+    <script>
+        // Create a function to check Day which tags number as parameter
+        function checkday() {
+            // here we are getting the value of input field with id 'number'
+            let number = document.getElementById('number').value; 
+            
+            // here find the day of the week based on the value of number
+            // 1 for Monday, 2 for Tuesday, ..., 7 for Sunday
+            if (number==1) {
+                document.getElementById('result').innerHTML = "Monday";
+            } else if (number==2) {
+                document.getElementById('result').innerHTML = "Tuesday";
+            } else if (number==3) {
+                document.getElementById('result').innerHTML = "Wednesday";
+            } else if (number==4) {
+                document.getElementById('result').innerHTML = "Thursday";
+            } else if (number==5) {
+                document.getElementById('result').innerHTML = "Friday";
+            } else if (number==6) {
+                document.getElementById('result').innerHTML = "Saturday";
+            } else if (number==7) {
+                document.getElementById('result').innerHTML = "Sunday";
+            } else {
+                document.getElementById('result').innerHTML = "Invalid day number. Please enter a number between 1 and 7.";
+        }
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Find the day of the week</h1>
+    <label for="number">Enter day number: </label>
+    <input type="number" id="number" name="number" placeholder="Enter day number">
+        <button onclick="checkday()" >Check</button>
+    <p id="result"></p>
+</body>
+</html>
