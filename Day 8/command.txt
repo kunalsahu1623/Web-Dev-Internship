@@ -1,0 +1,10 @@
+1. firstly open Day 8 folder .
+then first command is npx create-react-app my-react-app-1 
+
+2.  cd my-react-app-2
+then npm start
+<delete folder public & src>
+<create folder public & src>
+<create index.html in public & index.js in src>
+<Write your html content in index.html>
+<and see the result>
