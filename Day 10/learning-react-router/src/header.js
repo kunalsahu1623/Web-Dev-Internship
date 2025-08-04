@@ -1,24 +1,22 @@
-{/* import { Link } from 'react-router-dom'*/}
+import { Link } from 'react-router-dom'
 function Headers() {
     return (
         <div className="flex p-3 bg-blue-400 border border-black hover:bg-blue-600 ">
-               <a href="/Home">
+               <Link to="/Home">
                     Home
-                </a>
+                </Link>
         
 
             <ul className="flex ml-auto">
-                <li> <a href="/Profile" >
-                    Profile </a>
-                </li>
-                <li className="ml-10"> <a href="/Friends" >
-                    My Friend  </a>
-                </li>
+                <Link to="/Profile" >
+                    Profile
+                </Link>
+                <Link className="ml-10" to="/Friends" >
+                    My Friend 
+                </Link>
             </ul>
         </div>
     )
 }
 
 export default Headers
-
-{/* <Link to="/Friends"  className="ml-10">My Friend</Link> */}
