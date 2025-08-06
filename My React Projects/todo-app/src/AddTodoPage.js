@@ -1,76 +1,81 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-function AddTodoPage() {
-    const [form, setForm] = useState({
-        title: "",
-        dueDate: "",
-        status: ""
-    });
+function AddTodoPage(props) {
+  let setTodo = props.setTodo;
 
-    function handleChange(e) {
-        // will update state here
+  let [formData, setFormData] = useState({
+    todoTitle: '',
+    dueDate: '',
+    status: 'pending'
+  });
 
-        let inputTagName = e.target.name; // here we are taking input name
-        let inputTagValue = e.target.value; // here we are taking input value
+  function handleChange(e) {
+    let inputName = e.target.name;
+    let inputValue = e.target.value;
 
-        setForm(previousForm => ({
-            ...previousForm,
-            [inputTagName]: inputTagValue
-        }));
-    };
+    setFormData(prev => ({
+      ...prev,
+      [inputName]: inputValue
+    }));
+  }
 
-    function handleSubmit(e) {
-        alert(`Form Submitted \n Your Tile is ${form.title} \n Your DueDate is ${form.dueDate} \n Your Status is ${form.status}`)
-    };
-    return (
-        <form
-            onSubmit={(e) => handleSubmit(e)}
-            className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md space-y-6"
+  function handleSubmit(e) {
+    e.preventDefault(); // prevent page refresh
+    alert("Form submitted, data = " + JSON.stringify(formData));
+
+    //update state 
+    setTodo(previousTodos => ([
+      ...previousTodos,
+      {
+        "id": Date.now(),
+        "todoTitle": formData.todoTitle,
+        "dueDate": formData.dueDate,
+        "status": formData.status,
+        "completeDate": "",
+      }
+    ]));
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-pink-300 flex justify-center items-center px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg space-y-6"
+      >
+        <h2 className="text-2xl font-bold text-center text-pink-700">Add New Todo</h2>
+
+        <div>
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Todo Title</label>
+          <input
+            type="text"
+            placeholder="Enter your todo title"
+            name="todoTitle"
+            value={formData.todoTitle}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm font-semibold text-gray-700">Due Date</label>
+          <input
+            type="date"
+            name="dueDate"
+            value={formData.dueDate}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="bg-pink-500 text-white w-full py-2 rounded-md hover:bg-pink-600 transition duration-200 font-semibold"
         >
-            <div>
-                <label className="block mb-1 font-semibold">Todo Title:</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={form.title}
-                    onChange={(e) => handleChange(e)}
-                    required
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-            </div>
-            <div>
-                <label className="block mb-1 font-semibold">Due Date:</label>
-                <input
-                    type="date"
-                    name="dueDate"
-                    value={form.dueDate}
-                    onChange={(e) => handleChange(e)}
-                    required
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-            </div>
-            <div>
-                <label className="block mb-1 font-semibold">Status:</label>
-                <select
-                    name="status"
-                    value={form.status}
-                    onChange={(e) => handleChange(e)}
-                    required
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                >
-                    <option value="">Select status</option>
-                    <option value="pending">Pending</option>
-                    <option value="completed">Completed</option>
-                </select>
-            </div>
-            <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-            >
-                Submit
-            </button>
-        </form>
-    );
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 }
 
-export default AddTodoPage
+export default AddTodoPage;
