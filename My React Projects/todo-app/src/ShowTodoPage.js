@@ -2,7 +2,7 @@ function ShowTodoPage(props) {
     let todoArr = props.todo;
 
     function handleClick(e, todoId) {
-        console.log("here")
+        
         let newTodoArr = []
 
         for (let i = 0; i < todoArr.length; i++) {
@@ -31,22 +31,30 @@ function ShowTodoPage(props) {
                 </thead>
                 <tbody>
                     {
-                        todoArr.map((value, index) => (
-                            value.status === "pending" && (
-                            <tr class="hover:bg-purple-100 transition">
-                                <td class="border px-4 py-2 text-center">{value.todoTitle}</td>
-                                <td class="border px-4 py-2 text-center">{value.dueDate}</td>
-                                <td class="border px-4 py-2 text-center">
-                                    <button
-                                        onClick={(e) => handleClick(e, value.id)}
-                                        class="text-green-600 hover:text-green-800 text-xl transition"
-                                    >
-                                        ✅
-                                    </button>
+                        todoArr.filter(value => value.status === "pending").length === 0 ? (
+                            <tr>
+                                <td colSpan={3} class="text-center py-6 text-gray-500">
+                                    No pending todos left.
                                 </td>
                             </tr>
-                            )
-                        ))
+                        ) : (
+                            todoArr.map((value, index) => (
+                                value.status === "pending" && (
+                                <tr class="hover:bg-purple-100 transition">
+                                    <td class="border px-4 py-2 text-center">{value.todoTitle}</td>
+                                    <td class="border px-4 py-2 text-center">{value.dueDate}</td>
+                                    <td class="border px-4 py-2 text-center">
+                                        <button
+                                            onClick={(e) => handleClick(e, value.id)}
+                                            class="text-green-600 hover:text-green-800 text-xl transition"
+                                        >
+                                            ✅
+                                        </button>
+                                    </td>
+                                </tr>
+                                )
+                            ))
+                        )
                     }
                 </tbody>
             </table>

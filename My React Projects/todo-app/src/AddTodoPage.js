@@ -20,58 +20,57 @@ function AddTodoPage(props) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault(); // prevent page refresh
+    e.preventDefault();
     alert("Form submitted, data = " + JSON.stringify(formData));
 
-    //update state 
     setTodo(previousTodos => ([
       ...previousTodos,
       {
-        "id": Date.now(),
-        "todoTitle": formData.todoTitle,
-        "dueDate": formData.dueDate,
-        "status": formData.status,
-        "completeDate": "",
+        id: Date.now(),
+        todoTitle: formData.todoTitle,
+        dueDate: formData.dueDate,
+        status: formData.status,
+        completeDate: "",
       }
     ]));
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-pink-300 flex justify-center items-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 via-pink-200 to-rose-300 flex justify-center items-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg space-y-6"
+        className="w-full max-w-lg mx-auto mt-10 p-10 bg-white rounded-3xl shadow-2xl space-y-8 border border-pink-200"
       >
-        <h2 className="text-2xl font-bold text-center text-pink-700">Add New Todo</h2>
+        <h2 className="text-3xl font-extrabold text-center text-pink-600 tracking-wide">✨ Add New Todo ✨</h2>
 
         <div>
-          <label className="block mb-2 text-sm font-semibold text-gray-700">Todo Title</label>
+          <label className="block mb-2 text-sm font-medium text-gray-700">Todo Title</label>
           <input
             type="text"
             placeholder="Enter your todo title"
             name="todoTitle"
             value={formData.todoTitle}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition duration-200 shadow-sm"
           />
         </div>
 
         <div>
-          <label className="block mb-2 text-sm font-semibold text-gray-700">Due Date</label>
+          <label className="block mb-2 text-sm font-medium text-gray-700">Due Date</label>
           <input
             type="date"
             name="dueDate"
             value={formData.dueDate}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition duration-200 shadow-sm"
           />
         </div>
 
         <button
           type="submit"
-          className="bg-pink-500 text-white w-full py-2 rounded-md hover:bg-pink-600 transition duration-200 font-semibold"
+          className="bg-gradient-to-r from-pink-500 to-rose-500 text-white w-full py-3 rounded-lg hover:from-pink-600 hover:to-rose-600 transition duration-300 font-semibold shadow-md"
         >
-          Submit
+          ➕ Submit Todo
         </button>
       </form>
     </div>
